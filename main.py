@@ -69,6 +69,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     cursor.execute("SELECT first_seen, trust_score, reports FROM users WHERE user_id=?", (user.id,))
     data = cursor.fetchone()
 
+    if data is None:
+    first_seen = "Not recorded"
+    trust_score = 0
+    reports = 0
+    else:
     first_seen = data[0]
     trust_score = data[1]
     reports = data[2]
