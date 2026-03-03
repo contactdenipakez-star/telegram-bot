@@ -118,7 +118,7 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
         img.paste(pfp, (80, 150))
 
     draw.text((350, 60), "CEK ID KEREN", font=font_big, fill="white")
-  draw.text((350, 150), f"Name: {user.first_name}", font=font_small, fill="white")
+    draw.text((350, 150), f"Name: {user.first_name}", font=font_small, fill="white")
     draw.text((350, 190), f"Username: @{user.username}", font=font_small, fill="white")
     draw.text((350, 230), f"User ID: {user.id}", font=font_small, fill="white")
     draw.text((350, 270), f"Premium: {premium}", font=font_small, fill="white")
