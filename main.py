@@ -110,8 +110,7 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
         font_small = ImageFont.load_default()
 
     # Ambil foto profil
-        photos = await 
-    context.bot.get_user_profile_photos(user.id)
+        photos = await context.bot.get_user_profile_photos(user.id)
 
         if photos.total_count > 0:
             file = await photos.photos[0][-1].get_file()
