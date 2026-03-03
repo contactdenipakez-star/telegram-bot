@@ -123,8 +123,7 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
 
             from io import BytesIO
             from PIL import Image
-
-            profile_photo = Image.open(BytesIO(photo_bytes))
+            
             profile_photo = profile_photo.resize((250, 250))
 
             img.paste(profile_photo, (50, 150)) 
