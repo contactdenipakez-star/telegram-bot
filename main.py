@@ -70,13 +70,13 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = cursor.fetchone()
 
     if data is None:
-    first_seen = "Not recorded"
-    trust_score = 0
-    reports = 0
+        first_seen = "Not recorded"
+        trust_score = 0
+        reports = 0
     else:
-    first_seen = data[0]
-    trust_score = data[1]
-    reports = data[2]
+        first_seen = data[0]
+        trust_score = data[1]
+        reports = data[2]
 
     dc_id = abs(user.id) % 5 + 1
     rank = get_rank(user.id)
