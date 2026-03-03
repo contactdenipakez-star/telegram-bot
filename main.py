@@ -111,9 +111,9 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
 
     # Ambil foto profil
     if user.photo:
-        photos = await context.bot.get_user_profile_photos(user.id)
+    photos = await context.bot.get_user_profile_photos(user.id)
 
-if photos.total_count > 0:
+    if photos.total_count > 0:
     file = await photos.photos[0][0].get_file()
     photo_bytes = await file.download_as_bytearray()
 
@@ -121,25 +121,25 @@ if photos.total_count > 0:
     from PIL import Image
 
     profile_photo = Image.open(BytesIO(photo_bytes))
-else:
+    else:
     profile_photo = None
 
-        draw.text((350, 60), "CEK ID KEREN", fill="white", font=font_big)
-        draw.text((350, 150), f"Name: {user.first_name}", fill="white", font=font_small)
-        draw.text((350, 190), f"Username: @{user.username}", fill="white", font=font_small)
-        draw.text((350, 230), f"User ID: {user.id}", fill="white", font=font_small)
-        draw.text((350, 270), f"Premium: {user.is_premium}", fill="white", font=font_small)
-        draw.text((350, 310), f"DC: {dc_id}", fill="white", font=font_small)
-        draw.text((350, 350), f"Rank: {rank}", fill="white", font=font_small)
+    draw.text((350, 60), "CEK ID KEREN", fill="white", font=font_big)
+    draw.text((350, 150), f"Name: {user.first_name}", fill="white", font=font_small)
+    draw.text((350, 190), f"Username: @{user.username}", fill="white", font=font_small)
+    draw.text((350, 230), f"User ID: {user.id}", fill="white", font=font_small)
+    draw.text((350, 270), f"Premium: {user.is_premium}", fill="white", font=font_small)
+    draw.text((350, 310), f"DC: {dc_id}", fill="white", font=font_small)
+    draw.text((350, 350), f"Rank: {rank}", fill="white", font=font_small)
 
-        draw.text((50, 460), "Powered by Burga", fill="white", font=font_small)
+    draw.text((50, 460), "Powered by Burga", fill="white", font=font_small)
 
-        bio = BytesIO()
-        bio.name = "burga_card.png"
-        img.save(bio, "PNG")
-        bio.seek(0)
+    bio = BytesIO()
+    bio.name = "burga_card.png"
+    img.save(bio, "PNG")
+    bio.seek(0)
 
-        await query.message.reply_photo(photo=bio, caption="💎 BURGA PREMIUM ID CARD")
+    await query.message.reply_photo(photo=bio, caption="💎 BURGA PREMIUM ID CARD")
 
 # ================= RUN =================
 app = ApplicationBuilder().token(BOT_TOKEN).build()
