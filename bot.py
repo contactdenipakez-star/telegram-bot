@@ -12,11 +12,11 @@ from telegram.ext import (
 
 # ================= CONFIG =================
 
-BOT_TOKEN = os.getenv("")
+BOT_TOKEN = os.getenv("8795032718:AAHFpfcK13QZ9CvvpT8cRMFmk8CPBc_GpK0")
 
-PUBLIC_CHANNEL = "@"
-STAT_CHANNEL = "@"
-OWNER_USERNAME = "@"
+PUBLIC_CHANNEL = "@jetrolet"
+STAT_CHANNEL = "@jetpackz"
+OWNER_USERNAME = "@burgaa"
 
 BOT_NAME = "CEK ID"
 
