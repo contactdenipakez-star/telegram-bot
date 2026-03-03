@@ -111,11 +111,18 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
 
     # Ambil foto profil
     if user.photo:
-        photos = await user.get_profile_photos(limit=1)
-        file = await photos.photos[0][-1].get_file()
-        response = requests.get(file.file_path)
-        pfp = Image.open(BytesIO(response.content)).resize((220, 220))
-        img.paste(pfp, (80, 150))
+        photos = await context.bot.get_user_profile_photos(user.id)
+
+if photos.total_count > 0:
+    file = await photos.photos[0][0].get_file()
+    photo_bytes = await file.download_as_bytearray()
+
+    from io import BytesIO
+    from PIL import Image
+
+    profile_photo = Image.open(BytesIO(photo_bytes))
+else:
+    profile_photo = None
 
         draw.text((350, 60), "CEK ID KEREN", fill="white", font=font_big)
         draw.text((350, 150), f"Name: {user.first_name}", fill="white", font=font_small)
