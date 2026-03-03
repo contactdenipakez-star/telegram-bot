@@ -110,21 +110,22 @@ async def generate_card(query, user, first_seen, trust_score, reports, dc_id, ra
         font_small = ImageFont.load_default()
 
     # Ambil foto profil
-    photos = await context.bot.get_user_profile_photos(user.id)
+        photos = await 
+    context.bot.get_user_profile_photos(user.id)
 
-    if photos.total_count > 0:
-    file = await photos.photos[0][-1].get_file()
-    photo_bytes = await file.download_as_bytearray()
+        if photos.total_count > 0:
+            file = await photos.photos[0][-1].get_file()
+            photo_bytes = await file.download_as_bytearray()
 
-    from io import BytesIO
-    from PIL import Image
+            from io import BytesIO
+            from PIL import Image
 
-    profile_photo = Image.open(BytesIO(photo_bytes))
-    profile_photo = profile_photo.resize((250, 250))
+            profile_photo = Image.open(BytesIO(photo_bytes))
+            profile_photo = profile_photo.resize((250, 250))
 
-    img.paste(profile_photo, (50, 150))
-    else:
-    profile_photo = None
+            img.paste(profile_photo, (50, 150)) 
+        else:
+            profile_photo = None
 
     draw.text((350, 60), "CEK ID KEREN", fill="white", font=font_big)
     draw.text((350, 150), f"Name: {user.first_name}", fill="white", font=font_small)
